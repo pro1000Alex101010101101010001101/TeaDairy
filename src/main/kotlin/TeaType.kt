@@ -1,4 +1,4 @@
-enum class TeaType(title: String) {
+enum class TeaType(val title: String) {
     SHU_PUERH("Шу-Пуэр"),
     SHEN_PUERH("Шен-Пуэр"),
     BLACK("Хэй-ча"),

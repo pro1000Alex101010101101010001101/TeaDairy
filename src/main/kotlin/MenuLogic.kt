@@ -1,9 +1,9 @@
-class MenuLogic(private val teaFactory: TeaFactory) {
+class MenuLogic(private val teaFactory: TeaFactory): ChoosingTea {
 
     private val teaRepository = TeaRepository
 
     fun createTea() {
-        val tea = ""
+        chooseTeaType()
 //        teaRepository.saveTea(tea)
     }
 }
