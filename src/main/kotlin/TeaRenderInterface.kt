@@ -1,4 +1,4 @@
-interface ChoosingTeaInterface {
+interface TeaRenderInterface {
 
     private val yellow get() = "\u001B[33m"
     private val cyan get() = "\u001B[36m"
@@ -24,9 +24,8 @@ ${buildTeaTypeList(teaTypes)}
         }.joinToString("\n")
     }
 
-    fun printInputBox(prompt: String = "Введите номер:"): Int {
+    fun printInputBox(prompt: String): Int {
         val boxWidth = prompt.length + 2
-
         val boxTop = "╭" + "─".repeat(boxWidth) + "╮"
         print(cyan + boxTop + "\n")
         print("│ $prompt $reset")  // 🡐 курсор останется здесь
