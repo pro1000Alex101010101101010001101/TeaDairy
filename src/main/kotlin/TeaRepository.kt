@@ -1,8 +1,7 @@
 import java.io.File
-import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-object TeaRepository: ChoosingTeaInterface {
+object TeaRepository: TeaRenderInterface {
 
     private val listOfTeasFile = File("List_of_teas.json")
 
@@ -36,12 +35,24 @@ object TeaRepository: ChoosingTeaInterface {
     }
 
     fun showAllTeas() {
+
+
         for (tea in _teas) {
             tea.printInfo()
         }
     }
 
     fun deleteTea() {
+        var boxWidth = printInputBox("Укажите Id чая:")
+        val id = readln().toInt()
+        boxBot(boxWidth)
 
+        for (tea in _teas) {
+            if (tea.id == id) {
+                _teas.remove(tea)
+            }
+        }
+        boxWidth = printInputBox("THE TEA HAS BEEN DELETED\n")
+        boxBot(boxWidth)
     }
 }
