@@ -2,7 +2,7 @@ import java.io.File
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-object TeaRepository {
+object TeaRepository: ChoosingTeaInterface {
 
     private val listOfTeasFile = File("List_of_teas.json")
 
@@ -33,5 +33,15 @@ object TeaRepository {
 
     fun saveChanges() {
         saveTeaToFile()
+    }
+
+    fun showAllTeas() {
+        for (tea in _teas) {
+            tea.printInfo()
+        }
+    }
+
+    fun deleteTea() {
+
     }
 }
