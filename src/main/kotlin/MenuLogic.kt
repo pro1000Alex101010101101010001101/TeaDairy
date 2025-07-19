@@ -29,7 +29,7 @@ class MenuLogic(): TeaRenderInterface {
         val year = readln().toIntOrNull()
         boxBot(boxWidth)
         val rating = promptForIntInRange( 1..10)
-        val teaType = teaTypes[teaTypeIndex + 1]
+        val teaType = teaTypes[teaTypeIndex - 1]
         val tea = when (teaType) {
             TeaType.SHU_PUERH -> teaFactory.createTea(type = TeaType.SHU_PUERH, name = name, year = year!!, rating = rating)
             TeaType.SHEN_PUERH -> teaFactory.createTea(type = TeaType.SHEN_PUERH, name = name, year = year!!, rating = rating)
