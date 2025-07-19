@@ -1,4 +1,4 @@
-interface ChoosingTea {
+interface ChoosingTeaInterface {
 
     private val yellow get() = "\u001B[33m"
     private val cyan get() = "\u001B[36m"
