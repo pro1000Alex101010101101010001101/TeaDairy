@@ -1,4 +1,4 @@
-class MenuLogic(): ChoosingTeaInterface {
+class MenuLogic(): TeaRenderInterface {
 
     private val teaFactory: TeaFactory = TeaFactory
     private val teaRepository = TeaRepository
@@ -39,6 +39,7 @@ class MenuLogic(): ChoosingTeaInterface {
             TeaType.OOLONG -> teaFactory.createTea(type = TeaType.OOLONG, name = name, year = year!!, rating = rating)
         }
        teaRepository.saveTea(tea)
+
     }
 
 
