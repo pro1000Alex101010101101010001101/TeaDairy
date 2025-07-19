@@ -43,3 +43,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Files ###
+# Игнорировать файл с чаями
+List_of_teas.json
