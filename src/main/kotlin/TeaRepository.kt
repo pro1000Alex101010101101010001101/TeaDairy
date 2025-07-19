@@ -24,11 +24,14 @@ object TeaRepository {
 
     fun saveTea(tea: Tea) {
         _teas.add(tea)
-        saveTeaToFile()
     }
 
     private fun saveTeaToFile() {
         val json = Json.encodeToString(_teas)
         listOfTeasFile.writeText(json)
+    }
+
+    fun saveChanges() {
+        saveTeaToFile()
     }
 }
