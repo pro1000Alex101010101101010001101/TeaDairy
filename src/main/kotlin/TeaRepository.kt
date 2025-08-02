@@ -9,15 +9,15 @@ object TeaRepository: TeaRenderInterface {
     val teas
         get() = _teas.toList()
 
-    private fun loadTeaFromFile(): MutableList<Tea> {
-        if (!listOfTeasFile.exists()) return mutableListOf()
+    private fun loadTeaFromFile(): MutableSet<Tea> {
+        if (!listOfTeasFile.exists()) return mutableSetOf()
 
         val json = listOfTeasFile.readText()
         return try {
-            Json.decodeFromString<List<Tea>>(json).toMutableList()
+            Json.decodeFromString<Set<Tea>>(json).toMutableSet()
         } catch (e: Exception) {
             println("Ошибка чтения JSON: ${e.message}")
-            mutableListOf()
+            mutableSetOf()
         }
     }
 
@@ -35,10 +35,10 @@ object TeaRepository: TeaRenderInterface {
     }
 
     fun showAllTeas() {
-
-
-        for (tea in _teas) {
+        for ((index, tea) in _teas.withIndex()) {
+            val boxWidth = printInputBox("Чай номер №${index + 1}\n")
             tea.printInfo()
+            boxBot(boxWidth)
         }
     }
 

@@ -6,7 +6,7 @@ object TeaFactory {
         type: TeaType,
         name: String,
         year: Int,
-        rating: Int,
+        rating: Int?,
     ): Tea {
         return Tea(id, type, name, year, rating)
     }

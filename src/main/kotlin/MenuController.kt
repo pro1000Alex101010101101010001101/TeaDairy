@@ -7,15 +7,15 @@ class MenuController(
         while (true) {
             teaMenuRender.showMainMenu()
             val boxWidth = printInputBox("Выберите действие:")
-            val input = readln()
+            val input = readln().toIntOrNull()
             boxBot(boxWidth)
 
-            when (input) {
-                "1" -> menuLogic.createTea()
-                "2" -> teaRepository.showAllTeas()
-                "3" -> teaRepository.deleteTea()
-                "4" -> TODO()
-                "5" -> {
+            when (input?: -1) {
+                1 -> menuLogic.createTea()
+                2 -> teaRepository.showAllTeas()
+                3 -> teaRepository.deleteTea()
+                4 -> TODO()
+                5 -> {
                     teaRepository.saveChanges()
                     return
                 }
